@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body style="background-color: #d6d8d9">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        Online Assignment Management Portal (O.A.M.P.)
+      </a>
+    </nav>
+    <div
+      id="container"
+      style="
+        border-radius: 58px;
+        border: 6px solid #343a40;
+        margin: 165px auto;
+        max-width: 800px;
+        box-shadow: 0px 0px 90px #343a40, 0px 0px 130px #343a40,
+          0px 0px 530px #343a40;
+        background-color: #ebebec;
+        padding: 80px;
+      "
+    >
+      <h1
+        style="
+          text-align: center;
+          text-shadow: 0px 0px 25px #343a40, 0px 0px 5px black;
+          color: #343a40;
+        "
+      >
+        LOGIN
+      </h1>
+      <form method="POST" action="{% url 'index'%}" class="form-group">
+        {% csrf_token %}
+
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="user_id"
+            id="user_id"
+            class="form__input"
+            placeholder="Enter your Id"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form__input"
+            placeholder="Password"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center">
+          <div style="display: inline">
+            <input type="radio" id="admin" name="User" value="admin" required />
+            <label for="admin">Admin</label>
+          </div>
+          <div style="display: inline">
+            <input
+              type="radio"
+              id="teacher"
+              name="User"
+              value="teacher"
+              required
+            />
+            <label for="teacher">Teacher</label>
+          </div>
+          <div style="display: inline">
+            <input
+              type="radio"
+              id="student"
+              name="User"
+              value="student"
+              required
+            />
+            <label for="student">Student</label>
+          </div>
+        </div>
+        <div class="row" style="text-align: center; margin: 30px">
+          <input
+            type="Submit"
+            value="Submit"
+            class="btn btn-danger"
+            style="margin: auto"
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <h6>{{error}}</h6>
+        </div>
+      </form>
+      <div style="text-align: center; margin: 10px">
+        <h6><a href="{% url 'signup'%}">New User?</a></h6>
+      </div>
+    </div>
+  </body>
+</html>

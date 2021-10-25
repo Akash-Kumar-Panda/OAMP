@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        Online Assignment Management Portal (O.A.M.P.)
+      </a>
+    </nav>
+    <div
+      id="container"
+      style="
+        border-radius: 8px;
+        border: 1px solid;
+        margin: 100px auto;
+        max-width: 800px;
+        box-shadow: 0px 0px 80px #343a40;
+        padding: 80px;
+      "
+    >
+      <h1 style="text-align: center; text-shadow: 0px 0px 5px #343a40">
+        SIGNUP
+      </h1>
+      <form method="POST" action="{% url 'signup'%}" class="form-group">
+        {% csrf_token %}
+
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="user_id"
+            id="user_id"
+            class="form__input"
+            placeholder="Enter your Id"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="fname"
+            id="fname"
+            class="form__input"
+            placeholder="Enter your First Name"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="lname"
+            id="lname"
+            class="form__input"
+            placeholder="Enter your Last Name"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="form__input"
+            placeholder="Enter your Email"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="contact"
+            id="contact"
+            class="form__input"
+            placeholder="Enter your contact number"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="text"
+            name="about"
+            id="about"
+            class="form__input"
+            placeholder="Enter your about"
+            style="min-width: 400px"
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form__input"
+            placeholder="Enter your Password"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <input
+            type="password"
+            name="repassword"
+            id="repassword"
+            class="form__input"
+            placeholder="Retype your Password"
+            style="min-width: 400px"
+            required
+          />
+        </div>
+        <div style="text-align: center">
+          <div style="display: inline">
+            <input type="radio" id="Admin" name="User" value="Admin" required />
+            <label for="Admin">Admin</label>
+          </div>
+          <div style="display: inline">
+            <input
+              type="radio"
+              id="Teacher"
+              name="User"
+              value="Teacher"
+              required
+            />
+            <label for="Tacher">Teacher</label>
+          </div>
+          <div style="display: inline">
+            <input
+              type="radio"
+              id="Student"
+              name="User"
+              value="Student"
+              required
+            />
+            <label for="Student">Student</label>
+          </div>
+        </div>
+        <div class="row" style="text-align: center; margin: 30px">
+          <input
+            type="Submit"
+            value="Submit"
+            class="btn btn-danger"
+            style="margin: auto"
+          />
+        </div>
+        <div style="text-align: center; margin: 30px">
+          <h6>{{error}}</h6>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
